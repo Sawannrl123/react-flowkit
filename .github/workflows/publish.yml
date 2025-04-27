@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# Add permissions block here to enable release creation
+permissions:
+  contents: write
+  packages: read
+
 jobs:
   version-check:
     runs-on: ubuntu-latest
@@ -85,7 +90,7 @@ jobs:
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ needs.version-check.outputs.package_version }}
           release_name: Release v${{ needs.version-check.outputs.package_version }}
