@@ -19,7 +19,7 @@ const SwitchCaseContext = React.createContext<
   value: "" as SwitchCaseValueType,
 });
 
-export default function SwitchCase<T extends SwitchCaseValueType>({
+export function SwitchCase<T extends SwitchCaseValueType>({
   value,
   children,
 }: SwitchCaseProps<T>) {

@@ -4,7 +4,7 @@ export interface ForEachProps<T> {
   data: T[];
   children: (data: T, index: number) => React.ReactNode;
 }
-export default function ForEach<T>({ data, children }: ForEachProps<T>) {
+export function ForEach<T>({ data, children }: ForEachProps<T>) {
   return (
     <>
       {data.map((item, index) => (

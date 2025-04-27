@@ -1,1 +1,1 @@
-export { default as ForEach } from "./for-each";
+export { ForEach } from "./for-each";

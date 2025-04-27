@@ -5,18 +5,21 @@ import { pluginNodePolyfill } from "@rsbuild/plugin-node-polyfill";
 export default defineConfig({
   source: {
     entry: {
-      index: ["./src/**"],
+      index: "./src/index.ts",
     },
   },
   lib: [
     {
-      bundle: false,
+      bundle: true,
       dts: true,
       format: "esm",
     },
   ],
   output: {
     target: "web",
+    cleanDistPath: true,
+    minify: true,
+    sourceMap: true,
   },
   plugins: [
     pluginReact(),

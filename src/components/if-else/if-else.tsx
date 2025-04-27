@@ -13,7 +13,7 @@ interface IfElseProps extends IfElseContextProps {
 const IfElseContext = React.createContext<IfElseContextProps>({
   condition: false,
 });
-export default function IfElse({
+export function IfElse({
   condition,
   children,
   else: ElseComponent = null,

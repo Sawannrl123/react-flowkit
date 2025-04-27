@@ -1,1 +1,1 @@
-export { default as GitBranchVersion } from "./git-branch-version";
+export { GitBranchVersion } from "./git-branch-version";

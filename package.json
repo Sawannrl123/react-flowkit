@@ -47,6 +47,9 @@
     "storybook": "storybook dev",
     "test": "vitest run"
   },
+  "dependencies": {
+    "current-git-branch": "^2.0.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@rsbuild/core": "1.3.9",
@@ -63,7 +66,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.2",
-    "current-git-branch": "*",
     "jsdom": "^26.1.0",
     "react": "^19.1.0",
     "storybook": "^8.6.12",
@@ -73,9 +75,7 @@
     "vitest": "^3.1.2"
   },
   "peerDependencies": {
-    "current-git-branch": "^2.0.1",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
-  },
-  "private": true
+  }
 }

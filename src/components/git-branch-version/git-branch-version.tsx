@@ -22,7 +22,7 @@ interface GitBranchVersionProps {
   appVersion?: string;
 }
 
-export default function GitBranchVersion({
+export function GitBranchVersion({
   position = "bottomLeft",
   backgroundColor = "rgba(0, 0, 0, 0.7)",
   textColor = "white",
@@ -53,10 +53,20 @@ export default function GitBranchVersion({
 
         // Get package version
         try {
-          // Try to dynamically import package.json to get version
-          // This approach works with many build systems like webpack
-          const packageJson = require("../package.json");
-          setVersion(packageJson.version || "");
+          // If the appVersion prop was provided, use it
+          if (appVersion) {
+            setVersion(appVersion);
+          } else {
+            // Try to dynamically import package.json to get version
+            // This approach works with many build systems like webpack
+            try {
+              const packageJson = require(`${process.cwd()}/package.json`);
+              setVersion(packageJson.version || "");
+            } catch (rootPkgError) {
+              console.warn("Could not load package version:", rootPkgError);
+              setVersion("unknown");
+            }
+          }
         } catch (versionErr) {
           console.warn("Could not load package version:", versionErr);
           setVersion("unknown");
