@@ -1,6 +1,6 @@
 {
   "name": "react-flowkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",
@@ -15,6 +15,12 @@
     "react-library"
   ],
   "author": "Sawan Kumar <sawannirala.09@gmail.com>",
+  "contributors": [
+    {
+      "name": "Varad Prabhu",
+      "url": "https://github.com/vaxad"
+    }
+  ],
   "license": "MIT",
   "homepage": "https://github.com/Sawannrl123/react-flowkit#readme",
   "repository": {
