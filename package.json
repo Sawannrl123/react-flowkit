@@ -1,0 +1,81 @@
+{
+  "name": "react-flowkit",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "A React library for building flow-based applications.",
+  "keywords": [
+    "react",
+    "flow",
+    "flow-based",
+    "react-flow",
+    "react-library"
+  ],
+  "author": "Sawan Kumar <sawannirala.09@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sawannrl123/react-flowkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sawannrl123/react-flowkit.git/issues"
+  },
+  "main": "./dist/index.js",
+  "browser": {
+    "./dist/index.js": "./dist/index.browser.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "build:storybook": "storybook build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write",
+    "storybook": "storybook dev",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rsbuild/core": "1.3.9",
+    "@rsbuild/plugin-node-polyfill": "^1.3.0",
+    "@rsbuild/plugin-react": "^1.2.0",
+    "@rslib/core": "^0.6.7",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-links": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.1.2",
+    "current-git-branch": "*",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "storybook": "^8.6.12",
+    "storybook-addon-rslib": "^1.0.1",
+    "storybook-react-rsbuild": "^1.0.1",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  },
+  "peerDependencies": {
+    "current-git-branch": "^2.0.1",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "private": true
+}
