@@ -82,7 +82,6 @@ jobs:
       - name: Publish package
         run: |
           # Remove private flag for publishing
-          npm pkg set private=false
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

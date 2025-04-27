@@ -4,6 +4,9 @@
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "react",
     "flow",
@@ -13,6 +16,7 @@
   ],
   "author": "Sawan Kumar <sawannirala.09@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/Sawannrl123/react-flowkit#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sawannrl123/react-flowkit.git"
