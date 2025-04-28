@@ -1,6 +1,6 @@
 {
   "name": "react-flowkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",
@@ -28,23 +28,21 @@
     "url": "https://github.com/Sawannrl123/react-flowkit.git"
   },
   "bugs": {
-    "url": "https://github.com/Sawannrl123/react-flowkit.git/issues"
+    "url": "https://github.com/Sawannrl123/react-flowkit/issues"
   },
   "main": "./dist/index.js",
-  "browser": {
-    "./dist/index.js": "./dist/index.browser.js"
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  },
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
