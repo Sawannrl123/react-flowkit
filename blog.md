@@ -80,7 +80,7 @@ import { IfElse, If, Else } from 'react-flowkit';
 ### 2. SwitchCase Component: Component-Based Switch Statements
 
 ```jsx
-import { SwitchCase, Case } from 'react-flowkit';
+import { SwitchCase, Case, Default } from 'react-flowkit';
 
 <SwitchCase value={status}>
   <Case value="loading">
@@ -92,6 +92,20 @@ import { SwitchCase, Case } from 'react-flowkit';
   <Case value="success">
     <SuccessMessage data={responseData} />
   </Case>
+  <Default>
+    <UnknownState message="No matching state found" />
+  </Default>
+</SwitchCase>
+
+// Alternative approach with default prop
+<SwitchCase 
+  value={status}
+  default={<UnknownState message="No matching state found" />}
+>
+  <Case value="loading">
+    <LoadingSpinner size="medium" />
+  </Case>
+  {/* Other cases */}
 </SwitchCase>
 ```
 
@@ -147,11 +161,7 @@ const UserList = ({ users }: { users: User[] }) => (
 );
 ```
 
-### 3. Minimal Dependencies
-
-React FlowKit has just one external dependency: `current-git-branch` (used only by the GitBranchVersion component). This keeps your project lean and reduces potential conflicts.
-
-### 4. Tiny Size
+### 3. Tiny Size
 
 At just a few kilobytes, React FlowKit adds minimal overhead to your application while providing significant developer experience improvements.
 
@@ -255,7 +265,6 @@ pnpm add react-flowkit
 | Conditional Rendering | `{condition && <Component />}` or ternary operator | `<IfElse condition={...}>` components |
 | Switch Statements | IIFE with switch-case | `<SwitchCase>` component |
 | List Rendering | Array.map() | `<ForEach>` component |
-| Branch Display | Custom implementation | Built-in `<GitBranchVersion>` |
 | Code Readability | Mixed JSX and JS logic | Clear, declarative components |
 
 ## Benefits Summary
@@ -264,7 +273,6 @@ pnpm add react-flowkit
 - ✅ **Maintainable** - Easier to read and maintain as applications grow
 - ✅ **Lightweight** - Minimal bundle impact due to tree-shaking support
 - ✅ **Type-Safe** - Full TypeScript support for improved developer experience
-- ✅ **Minimal Dependencies** - Just one dependency (and only if you use GitBranchVersion)
 - ✅ **Modern** - Built for current React paradigms
 - ✅ **Versatile** - Works with all React projects
 
@@ -276,7 +284,6 @@ Key benefits:
 - 🌲 Tree-shakable architecture
 - 📦 Tiny package size
 - 🔍 Full TypeScript support
-- 🧩 Minimal dependencies
 - 🚀 Enhanced developer experience
 
 Try React FlowKit in your next project and join the growing community of developers who are simplifying their React code flow!

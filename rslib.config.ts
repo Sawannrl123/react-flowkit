@@ -1,6 +1,5 @@
 import { pluginReact } from "@rsbuild/plugin-react";
 import { defineConfig } from "@rslib/core";
-import { pluginNodePolyfill } from "@rsbuild/plugin-node-polyfill";
 
 export default defineConfig({
   source: {
@@ -21,13 +20,5 @@ export default defineConfig({
     minify: true,
     sourceMap: true,
   },
-  plugins: [
-    pluginReact(),
-    pluginNodePolyfill({
-      globals: {
-        Buffer: false,
-        process: false,
-      },
-    }),
-  ],
+  plugins: [pluginReact()],
 });

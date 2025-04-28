@@ -14,7 +14,6 @@ A lightweight React library that provides convenient components for declarative 
 
 - 🌲 **Tree Shakable** - Only include what you actually use thanks to full tree-shaking support
 - 🔍 **TypeScript Support** - Complete type definitions out of the box
-- 🧩 **Minimal Dependencies** - Just one dependency (only for GitBranchVersion component)
 - 📦 **Tiny Size** - Small bundle footprint for optimal performance
 - 🚀 **Enhanced Developer Experience** - Cleaner, more readable flow control
 
@@ -23,7 +22,6 @@ A lightweight React library that provides convenient components for declarative 
 - **IfElse** - Declarative conditional rendering
 - **SwitchCase** - Component-based switch statements
 - **ForEach** - Simplified iteration over arrays
-- **GitBranchVersion** - Visual indicator for development branches
 
 ## Installation
 
@@ -62,9 +60,20 @@ import { IfElse, If, Else } from 'react-flowkit';
 ### Switch-Case Component
 
 ```jsx
-import { SwitchCase, Case } from 'react-flowkit';
+import { SwitchCase, Case, Default } from 'react-flowkit';
 
 <SwitchCase value={status}>
+  <Case value="loading">Loading...</Case>
+  <Case value="error">An error occurred!</Case>
+  <Case value="success">Data loaded successfully!</Case>
+  <Default>Unknown status</Default>
+</SwitchCase>
+
+// Alternative approach using default prop
+<SwitchCase 
+  value={status}
+  default={<div>Unknown status</div>}
+>
   <Case value="loading">Loading...</Case>
   <Case value="error">An error occurred!</Case>
   <Case value="success">Data loaded successfully!</Case>
@@ -93,7 +102,6 @@ import { ForEach } from 'react-flowkit';
 | Conditional Rendering | `{condition && <Component />}` or ternary operator | `<IfElse condition={...}>` components |
 | Switch Statements | IIFE with switch-case | `<SwitchCase>` component |
 | List Rendering | Array.map() | `<ForEach>` component |
-| Branch Display | Custom implementation | Built-in `<GitBranchVersion>` |
 | Code Readability | Mixed JSX and JS logic | Clear, declarative components |
 
 ## Benefits Summary
