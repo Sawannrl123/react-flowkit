@@ -2,4 +2,3 @@
 export { ForEach } from "./components/for-each";
 export { IfElse, If, Else } from "./components/if-else";
 export { SwitchCase, Case } from "./components/switch-case";
-export { GitBranchVersion } from "./components/git-branch-version";

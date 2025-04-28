@@ -1,6 +1,6 @@
 {
   "name": "react-flowkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",
@@ -54,9 +54,6 @@
     "format": "biome format --write",
     "storybook": "storybook dev",
     "test": "vitest run"
-  },
-  "dependencies": {
-    "current-git-branch": "^2.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

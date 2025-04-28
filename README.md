@@ -85,25 +85,6 @@ import { ForEach } from 'react-flowkit';
 </ForEach>
 ```
 
-### GitBranchVersion Component
-
-```jsx
-import { GitBranchVersion } from 'react-flowkit';
-
-// Show current git branch and app version in non-production branches
-<GitBranchVersion 
-  position="bottomLeft"
-  backgroundColor="rgba(0, 0, 0, 0.7)"
-  textColor="white"
-  showVersion={true}
-/>
-
-// Or with manual values (if not using current-git-branch)
-<GitBranchVersion 
-  gitBranch="feature/new-component"
-  appVersion="1.2.0"
-/>
-```
 
 ## Comparison with Traditional Approaches
 

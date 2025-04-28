@@ -111,21 +111,6 @@ import { ForEach } from 'react-flowkit';
 </ForEach>
 ```
 
-### 4. GitBranchVersion Component: Development Environment Indicator
-
-This unique component helps developers identify which branch they're working on - perfect for teams managing multiple environments:
-
-```jsx
-import { GitBranchVersion } from 'react-flowkit';
-
-<GitBranchVersion 
-  position="bottomLeft"
-  backgroundColor="rgba(0, 0, 0, 0.7)"
-  textColor="white"
-  showVersion={true}
-/>
-```
-
 ## Why Choose React FlowKit?
 
 ### 1. Tree Shakable
