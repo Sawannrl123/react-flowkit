@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IfElse, If, Else } from "../src";
-import React from "react";
+import { IfElse, If, Else } from ".";
 
 const meta = {
   title: "IfElse",

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SwitchCase, Case, Default } from "../src";
+import { SwitchCase, Case, Default } from ".";
 
 const meta = {
   title: "SwitchCase",

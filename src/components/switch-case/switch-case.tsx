@@ -1,91 +1,87 @@
-import React from "react";
+import React, { ReactNode, createContext, useContext } from "react";
 
-type SwitchCaseValueType = string | number | symbol;
-
-type SwitchCaseContextProps<T> = {
-  value: T;
-  hasMatchingCase: boolean;
-  setHasMatchingCase: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-type SwitchCaseProps<T extends SwitchCaseValueType> = {
-  value: T;
-  children?: React.ReactNode;
-  components?: Record<T, React.ReactNode>;
-  default?: React.ReactNode;
-};
-
-// Define the Case props type to use for type checking
-interface CaseProps {
-  value: SwitchCaseValueType;
-  children: React.ReactNode;
+// Create a simple context to check if Case/Default are within a SwitchCase
+const SwitchCaseContext = createContext<boolean>(false);
+interface DefaultProps {
+  children: ReactNode;
+}
+interface CaseProps extends DefaultProps {
+  value: any;
+}
+interface SwitchCaseProps extends CaseProps {
+  default?: ReactNode;
 }
 
-const SwitchCaseContext = React.createContext<
-  SwitchCaseContextProps<SwitchCaseValueType> | undefined
->(undefined);
-
-export function SwitchCase<T extends SwitchCaseValueType>({
+export function SwitchCase({
   value,
   children,
-  default: defaultCase = null,
-}: SwitchCaseProps<T>) {
+  default: defaultContent,
+}: SwitchCaseProps) {
   // Track if any Case has matched
-  const [hasMatchingCase, setHasMatchingCase] = React.useState(false);
+  let hasMatch = false;
+  let renderedContent: React.ReactNode = null;
+  let hasDefaultComponent = false;
 
-  // Reset the matching case state when the value changes
-  React.useEffect(() => {
-    setHasMatchingCase(false);
-  }, [value]);
+  // Process children to find matches and default components
+  React.Children.forEach(children, (child) => {
+    if (!React.isValidElement(child)) return;
 
-  // Context value with the current switch value and match tracking
-  const contextValue = React.useMemo(() => {
-    return { value, hasMatchingCase, setHasMatchingCase };
-  }, [value, hasMatchingCase]);
+    // Handle Case components
+    if (child.type === Case) {
+      if (
+        React.isValidElement<CaseProps>(child) &&
+        child.props.value === value &&
+        !hasMatch
+      ) {
+        hasMatch = true;
+        renderedContent = (child.props as { children: ReactNode }).children;
+      }
+    }
+    // Check for Default component
+    else if (child.type === Default) {
+      hasDefaultComponent = true;
+    }
+  });
+
+  // If no match found, look for a Default component
+  if (!hasMatch && hasDefaultComponent) {
+    React.Children.forEach(children, (child) => {
+      if (React.isValidElement(child) && child.type === Default) {
+        renderedContent = (child.props as { children: ReactNode }).children;
+      }
+    });
+  }
+
+  // If no match and no Default component, use the defaultContent
+  if (!hasMatch && !hasDefaultComponent && defaultContent) {
+    renderedContent = defaultContent;
+  }
 
   return (
-    <SwitchCaseContext.Provider value={contextValue}>
-      {children}
-      {!hasMatchingCase && defaultCase}
+    <SwitchCaseContext.Provider value={true}>
+      {renderedContent}
     </SwitchCaseContext.Provider>
   );
 }
 
-export function Case({
-  children,
-  value: caseValue,
-}: {
-  children: React.ReactNode;
-  value: SwitchCaseValueType;
-}) {
-  const context = React.useContext(SwitchCaseContext);
+export function Case() {
+  const insideSwitchCase = useContext(SwitchCaseContext);
 
-  if (!context) {
+  if (!insideSwitchCase) {
     throw new Error("Case must be used within a SwitchCase component");
   }
 
-  const { value, setHasMatchingCase } = context;
-  const matches = value === caseValue;
-
-  // If this case matches, update the parent SwitchCase
-  React.useEffect(() => {
-    if (matches) {
-      setHasMatchingCase(true);
-    }
-  }, [matches, setHasMatchingCase]);
-
-  return matches ? children : null;
+  // This component doesn't render directly - it's processed by SwitchCase
+  return null;
 }
 
-export function Default({ children }: { children: React.ReactNode }) {
-  const context = React.useContext(SwitchCaseContext);
+export function Default() {
+  const insideSwitchCase = useContext(SwitchCaseContext);
 
-  if (!context) {
+  if (!insideSwitchCase) {
     throw new Error("Default must be used within a SwitchCase component");
   }
 
-  const { hasMatchingCase } = context;
-
-  // Only render if no Case has matched
-  return !hasMatchingCase ? children : null;
+  // This component doesn't render directly - it's processed by SwitchCase
+  return null;
 }

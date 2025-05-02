@@ -22,6 +22,7 @@ A lightweight React library that provides convenient components for declarative 
 - **IfElse** - Declarative conditional rendering
 - **SwitchCase** - Component-based switch statements
 - **ForEach** - Simplified iteration over arrays
+- **StringCase** - Transform text to different case formats
 
 ## Installation
 
@@ -94,6 +95,27 @@ import { ForEach } from 'react-flowkit';
 </ForEach>
 ```
 
+### StringCase Component
+
+```jsx
+import { StringCase } from 'react-flowkit';
+
+// Transform to different cases
+<StringCase type="uppercase">hello world</StringCase> // "HELLO WORLD"
+<StringCase type="lowercase">HELLO WORLD</StringCase> // "hello world"
+<StringCase type="sentencecase">hello world</StringCase> // "Hello world"
+<StringCase type="titlecase">hello world</StringCase> // "Hello World"
+<StringCase type="camelcase">Hello World</StringCase> // "helloWorld"
+<StringCase type="pascalcase">hello world</StringCase> // "HelloWorld"
+<StringCase type="kebabcase">Hello World</StringCase> // "hello-world"
+<StringCase type="snakecase">Hello World</StringCase> // "hello_world"
+
+// Using custom delimiter
+<StringCase type="camelcase" delimiter="-">custom-delimiter-string</StringCase> // "customDelimiterString"
+<StringCase type="pascalcase" delimiter="_">custom_delimiter_string</StringCase> // "CustomDelimiterString"
+<StringCase type="titlecase" delimiter=".">custom.delimiter.string</StringCase> // "Custom Delimiter String"
+<StringCase type="snakecase" delimiter=" ">custom delimiter string</StringCase> // "custom_delimiter_string"
+```
 
 ## Comparison with Traditional Approaches
 
@@ -102,6 +124,7 @@ import { ForEach } from 'react-flowkit';
 | Conditional Rendering | `{condition && <Component />}` or ternary operator | `<IfElse condition={...}>` components |
 | Switch Statements | IIFE with switch-case | `<SwitchCase>` component |
 | List Rendering | Array.map() | `<ForEach>` component |
+| Text Case Transformation | Utility functions | `<StringCase>` component |
 | Code Readability | Mixed JSX and JS logic | Clear, declarative components |
 
 ## Benefits Summary

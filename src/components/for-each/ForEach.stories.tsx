@@ -1,6 +1,5 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ForEach } from "../src";
+import { ForEach } from ".";
 
 // Define a more specific meta type with generics
 const meta = {

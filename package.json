@@ -1,6 +1,6 @@
 {
   "name": "react-flowkit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",
@@ -64,7 +64,6 @@
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
     "@storybook/addon-links": "^8.6.12",
-    "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
     "@storybook/react": "^8.6.12",
     "@storybook/test": "^8.6.12",
