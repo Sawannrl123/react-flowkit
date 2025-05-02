@@ -1,6 +1,6 @@
 {
   "name": "react-flowkit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "sideEffects": false,
   "description": "A React library for building flow-based applications.",

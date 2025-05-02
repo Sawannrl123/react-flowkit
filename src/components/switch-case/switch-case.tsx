@@ -64,7 +64,7 @@ export function SwitchCase({
   );
 }
 
-export function Case() {
+export function Case({ value, children }: CaseProps) {
   const insideSwitchCase = useContext(SwitchCaseContext);
 
   if (!insideSwitchCase) {
@@ -75,7 +75,7 @@ export function Case() {
   return null;
 }
 
-export function Default() {
+export function Default({ children }: DefaultProps) {
   const insideSwitchCase = useContext(SwitchCaseContext);
 
   if (!insideSwitchCase) {
